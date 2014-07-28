@@ -1,5 +1,6 @@
 package com.lightbringer.test;
 
+import com.lightbringer.test.configuration.ConfigurationHandler;
 import com.lightbringer.test.proxy.IProxy;
 import com.lightbringer.test.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -14,14 +15,14 @@ public class test {
     @Mod.Instance(Reference.MOD_ID)
     public static test instance;
 
-    @SidedProxy(clientSide="com.lightbringer.test.proxy.ClientProxy", serverSide="com.lightbringer.test.proxy.ServerProxy")
+    @SidedProxy(clientSide=Reference.CLIENT_PROXY_CLASS, serverSide=Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     }
 
     @Mod.EventHandler
