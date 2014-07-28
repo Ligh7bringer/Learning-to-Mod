@@ -1,6 +1,6 @@
 package com.lightbringer.test;
 
-import com.lightbringer.test.configuration.ConfigurationHandler;
+import com.lightbringer.test.handler.ConfigurationHandler;
 import com.lightbringer.test.proxy.IProxy;
 import com.lightbringer.test.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -9,7 +9,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid= Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
+@Mod(modid= Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class test {
 
     @Mod.Instance(Reference.MOD_ID)
