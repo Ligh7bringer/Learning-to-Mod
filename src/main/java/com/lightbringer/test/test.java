@@ -1,8 +1,10 @@
 package com.lightbringer.test;
 
 import com.lightbringer.test.handler.ConfigurationHandler;
+import com.lightbringer.test.init.ModItems;
 import com.lightbringer.test.proxy.IProxy;
 import com.lightbringer.test.reference.Reference;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -23,6 +25,9 @@ public class test {
     public void preInit(FMLPreInitializationEvent event)
     {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
+        ModItems.init();
     }
 
     @Mod.EventHandler
